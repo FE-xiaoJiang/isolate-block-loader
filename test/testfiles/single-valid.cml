@@ -1,0 +1,103 @@
+<template lang="vue">
+  <view @tap="jump">
+    <text class="line-test">jumptesteteststetsejumptesteteststetsejumptesteteststetsejumptesteteststetsejumptesteteststetsejumptesteteststetsejumptesteteststetse</text>
+  </view>
+</template>
+
+<script>
+
+import cml from 'chameleon-api';
+class JumpTest   {
+
+  data = {
+    env: 'weex',
+  }
+
+  computed = {
+    
+  }
+
+  watch  = {
+  }
+
+  methods = {
+    // -- weex --
+    jump() {
+      console.log('weeeeeeeeeeeeeeeeeeeex');
+    },
+    // -- weex --/
+    // -- web --
+    jump() {
+      console.log('weeeeeeeeeeeeeeeeeeeeb');
+    },
+    // -- web --/
+    // -- weex --
+    jump() {
+      console.log('weeeeeeeeeeeeeeeeeeeex');
+    },
+    // -- weex --/
+  }
+
+  beforeCreate() {
+  }
+
+  created() {
+  }
+
+  beforeMount() {
+  }
+
+  mounted() {
+    if (this.env === 'web') {
+      document.getElementById('testId').innerHTML = 'hhh';
+    } else {
+      const cbb = new BroadcastChannel();
+    }
+  }
+
+  beforeDestroy() {
+  }
+
+  destroyed() {
+  }
+}
+
+export default new JumpTest();
+</script>
+
+<style>
+  .line-test {
+    width: 750cpx;
+    lines: 2;
+  }
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {
+      
+    }
+  },
+  "wx": {
+    "navigationBarTitleText": "index",
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#E2E2E2"
+  },
+  "alipay": {
+    "defaultTitle": "index",
+    "pullRefresh": false,
+    "allowsBounceVertical": "YES",
+    "titleBarColor": "#ffffff"
+  },
+  "baidu": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "index",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": false,
+    "onReachBottomDistance": 50
+  }
+}
+</script>

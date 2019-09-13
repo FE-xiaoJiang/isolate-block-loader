@@ -1,0 +1,18 @@
+{
+  "name": "isolate-block-loader",
+  "version": "1.0.0",
+  "description": "代码级多态处理，多平台代码隔离",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/test.js"
+  },
+  "author": "jiangxf",
+  "license": "ISC",
+  "dependencies": {
+    "loader-utils": "^1.2.3"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0"
+  }
+}

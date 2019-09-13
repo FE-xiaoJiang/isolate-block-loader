@@ -1,0 +1,46 @@
+<template>
+  <view>
+    <text>weex端自定义组件</text>
+    <text>props:{{name}}</text>
+  </view>
+</template>
+
+<script>
+
+class PolyTest implements PolyTestInterface {
+  props = {
+    name: {
+      type: String,
+      default: '默认值'
+    }
+  }
+
+  methods = {
+    // -- web --
+    testHandler() {
+      console.log('weeeeeeeeeeeeeeeeeeeeb');
+    }
+    // -- web --/
+  }
+
+  mounted() {
+    this.$cmlEmit('onshow',{
+      value: this.name
+    })
+  }
+}
+
+export default new PolyTest();
+</script>
+
+<style >
+
+</style>
+
+<script cml-type="json">
+{
+  "base": {
+    "usingComponents": {}
+  }
+}
+</script>
