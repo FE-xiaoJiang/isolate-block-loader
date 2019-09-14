@@ -15,6 +15,7 @@ function checkBlockFMT(content, _this) {
                     【代码块多态存在多态标识嵌套问题 】
                     文件位置: ${_this.resourcePath}
                     `))
+                return false;
             }
         } catch(e) {
             console.log(e)
