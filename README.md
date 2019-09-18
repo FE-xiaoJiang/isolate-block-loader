@@ -2,8 +2,23 @@
 支持chameleon框架代码级多态处理，多平台代码隔离
 
 # 使用方法
+业务代码示例：
+```
+// -- web --
+web平台代码块
+// -- web --/
 
-官方不支持的条件下，可以在chameleon.config.js添加如下代码进行配置：
+// -- weex --
+weex平台代码块
+// -- weex --/
+
+// -- wx --
+wx平台代码块
+// -- wx --/
+...
+```
+
+loader配置方式，官方不支持的条件下，可以在chameleon.config.js添加如下代码进行配置：
 ```
 cml.utils.plugin('webpackConfig', function({ type, media, webpackConfig }, cb) {
   let moduleRules = webpackConfig.module.rules;
