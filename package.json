@@ -3,6 +3,10 @@
   "version": "1.1.0",
   "description": "代码级多态处理，多平台代码隔离",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FE-xiaoJiang/isolate-block-loader.git"
+  },
   "scripts": {
     "test": "mocha test/test.js"
   },
