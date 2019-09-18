@@ -29,3 +29,35 @@ cml.utils.plugin('webpackConfig', function({ type, media, webpackConfig }, cb) {
   });
 });
 ```
+以上代码在某些情况下会有些问题，当我们配置了weex多页面的时候，可能webpackConfig实际是个配置对象数组而不仅仅是一个单一配置对象，这时候我们需要做一些区分
+```
+cml.utils.plugin('webpackConfig', function({ type, media, webpackConfig }, cb) {
+  function addIsolateBlockLoader(moduleRules) {
+    for (let i = 0; moduleRules && i < moduleRules.length; i++) {
+      if (moduleRules[i].test && typeof moduleRules[i].test == 'object' && moduleRules[i].test.test('test.cml') 
+          && moduleRules[i].use && moduleRules[i].use.length > 0) {
+        moduleRules[i].use.push({
+          loader: 'isolate-block-loader',
+          options: {
+            cmlType: type,
+            media,
+          }
+        });
+      }
+    }
+  }
+  if (webpackConfig.length) { // 配置可能是个数组
+    for (let i = 0; i < webpackConfig.length; i++) {
+      addIsolateBlockLoader(webpackConfig[i].module.rules);
+    }
+  } else {
+    addIsolateBlockLoader(webpackConfig.module.rules);
+  }
+    // cb函数用于设置修改后的配置
+  cb({
+    type,
+    media,
+    webpackConfig
+  });
+});
+```
