@@ -10,6 +10,11 @@
   "scripts": {
     "test": "mocha test/test.js"
   },
+  "keywords": [
+    "chameleon",
+    "loader",
+    "isolate code"
+  ],
   "author": "jiangxf",
   "license": "ISC",
   "dependencies": {
