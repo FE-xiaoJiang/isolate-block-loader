@@ -1,6 +1,6 @@
 {
   "name": "isolate-block-loader",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "代码级多态处理，多平台代码隔离",
   "main": "index.js",
   "scripts": {
